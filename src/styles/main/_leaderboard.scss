@@ -1,0 +1,22 @@
+.leaderboard{
+    flex-grow: 1;
+}
+
+.leaderboardTable{
+    width: 100%;
+
+    >thead{
+        text-transform: uppercase;
+        color: darkgray
+    }
+
+    .colTeam{
+        width: 100%;
+        text-align: left;
+        padding: 0 1em;
+    }
+
+    .colClicks{
+        text-align: right;
+    }
+}

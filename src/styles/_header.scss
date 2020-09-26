@@ -1,0 +1,24 @@
+header{
+    width: 100%;
+    text-align: center;
+    
+    >.title{
+        background: $theme-blue;
+        h1{
+            // margin: 0;
+            text-transform: uppercase;
+        }
+    }
+
+    >.quote{
+        // background: salmon;
+        margin: 0 auto;
+        max-width: calc( #{$content-max-width} - 100px);
+        font-style: italic;
+
+        >.author{
+            margin-top: .5em;
+            text-align: right;
+        }
+    }
+}
