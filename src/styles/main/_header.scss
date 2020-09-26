@@ -30,3 +30,23 @@
         }
     }
 }
+
+.mainClikignButton{
+    min-height: 5em;
+    width: 80%;
+    margin: 0 auto;
+
+    >button{
+        background: $theme-blue;
+        height: 100%;
+        width: 100%;
+        border-radius: .25em;
+        border: 2px solid darkblue;
+        font-size: 1.5em;
+
+        &:hover{
+            background: darken($theme-blue, 15%);
+            font-weight: bold;
+        }
+    }
+}
