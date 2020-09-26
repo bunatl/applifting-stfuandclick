@@ -21,4 +21,22 @@ header{
             text-align: right;
         }
     }
+
+    >.share{
+        >div:first-child{
+            font-size: 1.75em;
+
+            >span{
+                font-weight: bold;
+            }
+        }
+
+        >div:last-child>div{
+            display: inline;
+            background: lightgray;
+            border: 1px solid darken(darkgray, 30%);
+            border-radius: 0.25em;
+            padding: .3em;
+        }
+    }
 }
