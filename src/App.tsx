@@ -6,16 +6,12 @@ import { Provider } from 'react-redux'
 // import styles
 import './styles/styles.scss'
 
-// header imports
+// components import
 import { Quote, SharingInfo } from './components/Header'
-
-// content imports
 import { Clicks, MainClickingButton } from './components/content/Clicks'
 import TotalClicks from './components/content/TotalClicks'
 import Leaderboard from './components/content/Leaderboard'
 import Motivation from './components/content/Motivation'
-
-// footer import
 import Footer from './components/Footer'
 
 // import root reducer

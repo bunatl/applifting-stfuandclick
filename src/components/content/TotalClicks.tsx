@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux'
 
 function TotalClicks() {
-    const yourClickCount = useSelector<any>(state => state.clicksReducer.clickCounter);
+    const yourClickCount = useSelector<any>(state => state.teamReducer.yourClickCount);
     const teamCountCounter = useSelector<any>(state => state.teamReducer.teamClickCount);
 
     return (

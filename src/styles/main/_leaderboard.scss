@@ -1,4 +1,5 @@
 .leaderboard{
+    @include flex(column, nowrap, space-around);
     flex-grow: 1;
 }
 
@@ -38,8 +39,22 @@
             background: lighten($theme-blue, 25%);
         }
     }
+
 }
 
 .spinner{
     margin: 6em auto 0 auto;
+}
+
+.currentTeamRow{
+    background: darken($theme-blue, 15%) !important;
+    border: 2px solid $theme-blue !important;
+    font-weight: bold;
+    color: white;
+    
+    td{
+        font-size: 1.4em;
+        padding-top: .5em;
+        padding-bottom: .5em;
+    }
 }

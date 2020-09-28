@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from "react-router-dom";
+import { useDispatch } from 'react-redux'
+import { setTeamName } from '../actions'
+import { IPathParams } from '../types/componentTypes'
 
 export function Quote() {
     return (
@@ -10,13 +13,15 @@ export function Quote() {
     );
 }
 
-export interface pathParameters {
-    slug: string;
-}
-
 export function SharingInfo() {
     // URL params in react router: https://reactrouter.com/web/example/url-params
-    const { slug } = useParams<pathParameters>();
+    const { slug } = useParams<IPathParams>();
+    const dispatch = useDispatch();
+
+    // set current team to redux
+    useEffect(() => {
+        dispatch(setTeamName(slug))
+    }, [ dispatch, slug ])
 
     const addToClipboard = () => {
         // https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Interact_with_the_clipboard

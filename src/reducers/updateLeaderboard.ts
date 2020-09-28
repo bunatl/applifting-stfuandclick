@@ -1,9 +1,4 @@
-type UpdateLeaderboardActions =
-    | { type: 'UPDATE' }
-
-interface IUpdateState {
-    update: boolean;
-}
+import { UpdateLeaderboardActions, IUpdateState } from '../types/reducerTypes'
 
 const initUpdate: IUpdateState = {
     update: false

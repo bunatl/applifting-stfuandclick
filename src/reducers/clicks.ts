@@ -1,9 +1,4 @@
-type ClickCounterActions =
-    | { type: 'INCREMENT' }
-
-interface ICounterState {
-    clickCounter: number;
-}
+import { ClickCounterActions, ICounterState } from '../types/reducerTypes'
 
 const initCounter: ICounterState = {
     clickCounter: 0

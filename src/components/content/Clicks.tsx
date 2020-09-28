@@ -1,21 +1,15 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux'
-import { useParams } from "react-router-dom";
-import { pathParameters } from '../Header';
+import { useDispatch, useSelector } from 'react-redux'
+import {
+    updateLeaderboard,
+    setYourClicksCount,
+    setTeamClicksCount
+} from '../../actions'
 
 const axios = require('axios');
 
 export function Clicks() {
-    const dispatch = useDispatch();
     const [ teamNameInput, setTeamNameInput ] = useState<string>('');
-
-    const startClicking = () => {
-        window.location.href = `/${teamNameInput}`;
-        dispatch({
-            type: 'SETTEAM',
-            payload: teamNameInput
-        });
-    }
 
     return (
         <div className="header">
@@ -31,7 +25,7 @@ export function Clicks() {
             </div>
             <div className="startClickingButton">
                 <button
-                    onClick={startClicking}
+                    onClick={() => window.location.href = `/${teamNameInput}`}
                 >Start clicking</button>
             </div>
         </div>
@@ -40,11 +34,11 @@ export function Clicks() {
 
 export function MainClickingButton() {
     const dispatch = useDispatch();
-    const { slug } = useParams<pathParameters>();
+
+    const teamHash = useSelector<any>(state => state.teamReducer.teamHash);
+    const teamName = useSelector<any>(state => state.teamReducer.teamName);
 
     const click = async () => {
-        // increment local count of your clicks
-        dispatch({ type: 'INCREMENT' });
         try {
             const res = await axios({
                 method: 'POST',
@@ -53,15 +47,17 @@ export function MainClickingButton() {
                     type: 'application/json'
                 },
                 data: {
-                    team: slug,
-                    session: ''
+                    team: teamName,
+                    session: teamHash
                 }
             });
 
             // get total count for team clicks
-            dispatch({ type: 'SETTEAMCLICKS', payload: res.data.team_clicks });
+            dispatch(setYourClicksCount(res.data.your_clicks));
+            dispatch(setTeamClicksCount(res.data.team_clicks));
+
             // update leadership board
-            dispatch({ type: 'UPDATE' });
+            dispatch(updateLeaderboard());
         } catch (err) {
             console.log(err);
         }
