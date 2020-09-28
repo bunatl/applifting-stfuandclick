@@ -16,7 +16,7 @@ function Leaderboard() {
         const fetchLeaderboard = async () => {
             // add delay for spinner popup (prevents spinner flash)
             // as suggested: https://stackoverflow.com/questions/51602428/react-throttle-debounce-spinner-loading-message-not-show-if-request-is-fas
-            const timer = setTimeout(() => setLoading(true), 750);
+            const timer = setTimeout(() => setLoading(true), 1250);
             try {
                 const res = await axios.get(`${process.env.REACT_APP_DB_URI}/api/v1/leaderboard`);
                 // take only first 10 entries

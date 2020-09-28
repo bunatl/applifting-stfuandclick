@@ -1,7 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useParams } from "react-router-dom";
-import { useDispatch } from 'react-redux'
-import { setTeamName } from '../actions'
 import { IPathParams } from '../types/componentTypes'
 
 export function Quote() {
@@ -16,12 +14,6 @@ export function Quote() {
 export function SharingInfo() {
     // URL params in react router: https://reactrouter.com/web/example/url-params
     const { slug } = useParams<IPathParams>();
-    const dispatch = useDispatch();
-
-    // set current team to redux
-    useEffect(() => {
-        dispatch(setTeamName(slug))
-    }, [ dispatch, slug ])
 
     const addToClipboard = () => {
         // https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Interact_with_the_clipboard

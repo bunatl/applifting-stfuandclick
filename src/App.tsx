@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route } from 'react-router-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux'
 
@@ -21,8 +21,8 @@ const store = createStore(combinedReducers);
 
 function App() {
   return (
-    <BrowserRouter>
-      <Provider store={store}>
+    <Provider store={store}>
+      <BrowserRouter>
         <header>
           <div className="title"><h1>stfuandclick.com</h1></div>
           <Route path="/" exact component={Quote} />
@@ -36,8 +36,8 @@ function App() {
           <Route path="/" component={Motivation} />
         </main>
         <Route path="/" component={Footer} />
-      </Provider>
-    </BrowserRouter>
+      </BrowserRouter>
+    </Provider>
   );
 }
 
